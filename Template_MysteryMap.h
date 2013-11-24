@@ -1,4 +1,4 @@
-#pragma once 
+#pragma once
 #include <cctype>
 #include <vector>
 #include <stdio.h>
@@ -41,7 +41,7 @@ public:
 	MysteryMap(K key, I item)
 	{
 		srand(time(NULL));
-		Key = key;
+		setKey(key);
 		Items.push_back(item);
 	}
 	~MysteryMap(){}
@@ -51,7 +51,7 @@ public:
 	}
 	I getRandomItem()  // returns a random item from the vector of items
 	{
-		return Items[rand() % Items.size()]
+		return Items[rand() % Items.size()];
 	}
 	vector<I> getAllItems() // return the vector Items
 	{
@@ -77,10 +77,6 @@ public:
 		else
 			return -1;
 	}
-	I getAllItems() // return the vector Items
-	{
-		return Items;
-	}
 	void setKey(K key) // set the value of Key
 	{
 		Key = key;
@@ -90,7 +86,7 @@ public:
 		return Key;
 	}
 protected:
-	K key;
+	K Key;
 	vector<I> Items;  // vector of like items assosiated with the key
 };
 
