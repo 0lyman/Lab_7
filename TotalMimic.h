@@ -1,6 +1,7 @@
 #pragma once
 #include "MimicInterface.h"
 #include "Template_MysteryMap.h"
+#include <iostream>
 class TotalMimic : public MimicInterface
 {
 public:
