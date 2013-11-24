@@ -1,7 +1,7 @@
 #pragma once
 #include "MimicInterface.h"
-class TotalMimic :
-	public MimicInterface
+#include "Template_MysteryMap.h"
+class TotalMimic : public MimicInterface
 {
 public:
 	TotalMimic();
@@ -26,7 +26,7 @@ public:
 	* @param input
 	* 		the sample text to be mimicked
 	*/
-	virtual void createMap(string input) = 0;
+	virtual void createMap(string input);
 
 	/**
 	* getSuffixList
@@ -40,7 +40,7 @@ public:
 	* @return a list of suffixes associated with the given prefix if the
 	* 		prefix is found; an empty vector otherwise
 	*/
-	virtual vector<string> getSuffixList(string prefix) = 0;
+	virtual vector<string> getSuffixList(string prefix);
 
 	//Part 2--------------------------------------------------------------
 	/**
@@ -58,6 +58,15 @@ public:
 	* @return random text generated using the map created with the sample
 	* 		text; an empty string if no map has been created yet
 	*/
-	virtual string generateText() = 0;
+	virtual string generateText();
+
+	/*
+	Finds given Prefix (findPrefix) and returns index number
+	of the location in the vector Prefixes where Prefix is located
+	*/
+	int getPrefixLocation(string findPrefix);
+protected:
+	vector<MysteryMap<string,string>*> Prefixes;
+	bool testBit;
 };
 
